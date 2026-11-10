@@ -151,9 +151,10 @@
           <span id="audio-time" class="font-typewriter text-xs text-[#7d6856]">0:00 / 0:00</span>
         </div>
 
-        <audio id="voice-note" preload="metadata"></audio> <source src="quote.mp3" type="audio/mpeg">
+        <audio controls><source src="quote.mp3" type="audio/mpeg"></audio>        
 
-        <!-- Player Controls -->
+
+          <!-- Player Controls -->
         <div class="flex items-center space-x-3 mt-3">
           <button id="play-btn" onclick="toggleAudio()" class="w-11 h-11 rounded-full bg-[#9c7356] hover:bg-[#835d42] text-white flex items-center justify-center transition shadow-md active:scale-95">
             <!-- Play Doodle Icon -->
