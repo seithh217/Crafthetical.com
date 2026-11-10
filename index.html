@@ -209,11 +209,9 @@
     const timeDisplay = document.getElementById('audio-time');
     const video = document.getElementById('timelapse-video');
 
-    function toggleAudio() {
-      if (!audio.src || audio.src === window.location.href) {
-        alert("Tip: Use the 'Creator Settings' at the bottom to pick a test voice note file from your device!");
-        return;
-      }
+    function toggleAudio() 
+      
+      
       if (audio.paused) {
         audio.play();
         playIcon.classList.add('hidden');
