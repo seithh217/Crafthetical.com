@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Art Keepsake Experience</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Vintage Paper Background & Aesthetic Fonts */
+    body {
+      font-family: 'Playfair Display', serif;
+      background-color: #f4efe6;
+      background-image: 
+        radial-gradient(#d3c7b4 1px, transparent 0),
+        radial-gradient(#d3c7b4 1px, #f4efe6 0);
+      background-size: 40px 40px;
+      background-position: 0 0, 20px 20px;
+      color: #362d26;
+    }
+    
+    .serif-title {
+      font-family: 'Cinzel', serif;
+    }
+    
+    .sans-body {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Polaroids & Frames styling */
+    .vintage-card {
+      background: #faf6f0;
+      box-shadow: 
+        0 10px 30px -5px rgba(54, 45, 38, 0.15),
+        0 0 0 1px rgba(184, 165, 142, 0.3);
+      border-radius: 12px;
+    }
+
+    .frame-border {
+      border: 8px solid #efe4d3;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    /* Audio Player Custom Controls */
+    input[type=range] {
+      accent-color: #8c6d53;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between p-4 sm:p-8">
+
+  <!-- Main Container -->
+  <main class="max-w-xl mx-auto w-full my-auto">
+    <div class="vintage-card p-6 sm:p-10 text-center relative overflow-hidden border border-[#e2d5c3]">
+      
+      <!-- Decorative Corner Accents -->
+      <div class="absolute top-3 left-3 text-[#b8a58e] text-xs font-serif opacity-60">✦</div>
+      <div class="absolute top-3 right-3 text-[#b8a58e] text-xs font-serif opacity-60">✦</div>
+      <div class="absolute bottom-3 left-3 text-[#b8a58e] text-xs font-serif opacity-60">✦</div>
+      <div class="absolute bottom-3 right-3 text-[#b8a58e] text-xs font-serif opacity-60">✦</div>
+
+      <!-- Header & Date Section -->
+      <header class="mb-8">
+        <span class="sans-body text-xs uppercase tracking-widest text-[#8c6d53] font-medium block mb-2">Personalized Keepsake</span>
+        <h1 class="serif-title text-2xl sm:text-3xl font-bold tracking-wide text-[#2b231d] mb-2">The Creation Story</h1>
+        
+        <!-- Editable Date Badge -->
+        <div class="inline-flex items-center space-x-2 bg-[#efe4d3]/60 px-4 py-1.5 rounded-full border border-[#d8c7b0]">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#8c6d53]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          <span class="sans-body text-xs sm:text-sm font-semibold text-[#4a3b2c]" id="display-date">October 24, 2024</span>
+        </div>
+      </header>
+
+      <!-- Video Section (Middle) -->
+      <section class="mb-8">
+        <div class="frame-border rounded-lg overflow-hidden bg-[#2b231d] aspect-video relative group shadow-inner">
+          <!-- Video Element (User replaces src with hosted video link, or YouTube embed) -->
+          <video id="process-video" class="w-full h-full object-cover" controls poster="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80">
+            <source src="" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <p class="sans-body text-xs text-[#736050] italic mt-2">Watch the drawing process come to life</p>
+      </section>
+
+      <!-- Audio / Voice Note Section (Bottom) -->
+      <section class="bg-[#efe4d3]/50 p-4 sm:p-5 rounded-xl border border-[#dfd0bb]">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center space-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#8c6d53]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+            </svg>
+            <span class="sans-body text-xs font-semibold uppercase tracking-wider text-[#4a3b2c]">Voice Note Memory</span>
+          </div>
+          <span id="audio-time" class="sans-body text-xs text-[#736050]">0:00 / 0:00</span>
+        </div>
+
+        <!-- Hidden Audio Element -->
+        <audio id="voice-note" preload="metadata">
+          <source src="" type="audio/mp3">
+        </audio>
+
+        <!-- Custom Audio Controls -->
+        <div class="flex items-center space-x-3">
+          <button id="play-btn" onclick="toggleAudio()" class="w-10 h-10 rounded-full bg-[#8c6d53] hover:bg-[#735841] text-white flex items-center justify-center transition shadow">
+            <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current ml-0.5" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            <svg id="pause-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current hidden" viewBox="0 0 24 24">
+              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+            </svg>
+          </button>
+
+          <input id="audio-slider" type="range" min="0" max="100" value="0" class="w-full h-1.5 bg-[#d8c7b0] rounded-lg appearance-none cursor-pointer">
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center py-4">
+    <p class="sans-body text-xs text-[#8c6d53]">Crafted with ♥ for Art Keepsakes</p>
+  </footer>
+
+  <!-- Simple Audio Player Logic -->
+  <script>
+    const audio = document.getElementById('voice-note');
+    const playBtn = document.getElementById('play-btn');
+    const playIcon = document.getElementById('play-icon');
+    const pauseIcon = document.getElementById('pause-icon');
+    const slider = document.getElementById('audio-slider');
+    const timeDisplay = document.getElementById('audio-time');
+
+    function toggleAudio() {
+      if (!audio.src || audio.src === window.location.href) {
+        alert("Please attach your voice note audio file link in the HTML code.");
+        return;
+      }
+      if (audio.paused) {
+        audio.play();
+        playIcon.classList.add('hidden');
+        pauseIcon.classList.remove('hidden');
+      } else {
+        audio.pause();
+        playIcon.classList.remove('hidden');
+        pauseIcon.classList.add('hidden');
+      }
+    }
+
+    audio.addEventListener('timeupdate', () => {
+      if (audio.duration) {
+        const progress = (audio.currentTime / audio.duration) * 100;
+        slider.value = progress;
+        timeDisplay.textContent = formatTime(audio.currentTime) + ' / ' + formatTime(audio.duration);
+      }
+    });
+
+    slider.addEventListener('input', () => {
+      if (audio.duration) {
+        audio.currentTime = (slider.value / 100) * audio.duration;
+      }
+    });
+
+    function formatTime(seconds) {
+      const mins = Math.floor(seconds / 60);
+      const secs = Math.floor(seconds % 60);
+      return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+    }
+  </script>
+</body>
+</html>
