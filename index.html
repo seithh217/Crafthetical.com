@@ -113,8 +113,8 @@
         <!-- Handwritten Date Badge -->
         <div class="inline-block relative mt-1">
           <span class="font-handwriting text-2xl sm:text-3xl text-[#b56b5d] underline decoration-wavy decoration-[#e0a89d]">
-            October 24, 2026
-          </span>
+            <span id="current-date"></span>
+
           <!-- Tiny Doodle Sparkle -->
           <span class="absolute -top-2 -right-5 text-[#caa368] text-sm">✨</span>
         </div>
@@ -244,5 +244,11 @@
       }
     });
   </script>
+  <script>
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const today = new Date().toLocaleDateString('en-US', options);
+  document.getElementById('current-date').textContent = today;
+</script>
+
 </body>
 </html>
