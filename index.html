@@ -151,25 +151,7 @@
           <span id="audio-time" class="font-typewriter text-xs text-[#7d6856]">0:00 / 0:00</span>
         </div>
 
-        <audio id="voice-note" preload="metadata" style="display: none;"><source src="quote.mp3" type="audio/mpeg"></audio>        
-     
-          <!-- Player Controls -->
-        <div class="flex items-center space-x-3 mt-3">
-          <button id="play-btn" onclick="toggleAudio()" class="w-11 h-11 rounded-full bg-[#9c7356] hover:bg-[#835d42] text-white flex items-center justify-center transition shadow-md active:scale-95">
-            <!-- Play Doodle Icon -->
-            <svg id="play-icon" class="w-5 h-5 fill-current ml-0.5" viewBox="0 0 24 24">
-              <path d="M8 5v14l11-7z"/>
-            </svg>
-            <!-- Pause Doodle Icon -->
-            <svg id="pause-icon" class="w-5 h-5 fill-current hidden" viewBox="0 0 24 24">
-              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
-            </svg>
-          </button>
-
-          <!-- Audio Progress Bar -->
-          <input id="audio-slider" type="range" min="0" max="100" value="0" class="w-full h-2 bg-[#d6c4ae] rounded-lg appearance-none cursor-pointer">
-        </div>
-      </section>
+        <audio controls><source src="quote.mp3" type="audio/mpeg"></audio>      
 
       <!-- Free Local Media Tester Tool (Collapsible for creators) -->
       <details class="mt-6 pt-4 border-t border-dashed border-[#d8c8b4] text-center">
